@@ -30,6 +30,7 @@ namespace ConsentManager.ConsentManagerDemo.Scripts
         [SerializeField] public Button btnShowRewardedVideo;
         [SerializeField] public GameObject consentManagerPanel;
         [SerializeField] public GameObject appodealPanel;
+        [SerializeField] public Text appodealBuildInfoText;
 
         #endregion
 
@@ -61,6 +62,12 @@ namespace ConsentManager.ConsentManagerDemo.Scripts
 
             consentManager = ConsentManager.getInstance();
             consentManager.setStorage(ConsentManager.Storage.SHARED_PREFERENCE);
+            
+#if UNITY_ANDROID && !UNITY_EDITOR
+            appodealBuildInfoText.text = $"Plugin: {Appodeal.getPluginVersion()} SDK: {Appodeal.getNativeSDKVersion()} Build: {Appodeal.getBuildDate()}";
+#else
+            appodealBuildInfoText.text = $"Plugin: {Appodeal.getPluginVersion()} SDK: {Appodeal.getNativeSDKVersion()}";
+#endif
         }
 
         private void OnDestroy()
