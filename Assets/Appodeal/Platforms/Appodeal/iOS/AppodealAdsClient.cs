@@ -664,6 +664,12 @@ namespace AppodealAds.Unity.iOS
             return AppodealObjCBridge.AppodealGetVersion();
         }
 
+        public DateTime getBuildDate()
+        {
+            //todo not implemented for this platform
+            return DateTime.MinValue;
+        }
+
         public long getSegmentId()
         {
             return AppodealObjCBridge.AppodealGetSegmentId();

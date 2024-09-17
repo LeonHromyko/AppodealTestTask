@@ -724,6 +724,15 @@ namespace AppodealAds.Unity.Api
         {
             return APPODEAL_PLUGIN_VERSION;
         }
+        
+        /// <summary>
+        /// Get build date
+        /// See <see cref="Appodeal.getBuildDate"/> for resulting triggered event.
+        /// </summary>
+        public static DateTime getBuildDate()
+        {
+            return getInstance().getBuildDate();
+        }
 
         /// <summary>
         /// Get predicted ecpm for certain ad type.

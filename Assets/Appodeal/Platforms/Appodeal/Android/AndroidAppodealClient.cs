@@ -314,6 +314,14 @@ namespace AppodealAds.Unity.Android
         {
             return getAppodealClass().CallStatic<string>("getVersion");
         }
+        
+        public DateTime getBuildDate()
+        {
+            var buildDateObject = getAppodealClass().CallStatic<AndroidJavaObject>("getBuildDate");
+            var timeInMs = buildDateObject.Call<long>("getTime");
+            
+            return DateTimeOffset.FromUnixTimeMilliseconds(timeInMs).DateTime;
+        }
 
         public long getSegmentId()
         {

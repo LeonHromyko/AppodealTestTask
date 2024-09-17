@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
@@ -172,6 +173,12 @@ namespace AppodealAds.Unity.Dummy
         public string getVersion()
         {
             return Appodeal.APPODEAL_PLUGIN_VERSION;
+        }
+
+        public DateTime getBuildDate()
+        {
+            //todo not implemented for this platform
+            return DateTime.MinValue;
         }
 
         public long getSegmentId()
